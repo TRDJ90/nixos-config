@@ -7,12 +7,18 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+   
+  programs.git = {
+	enable = true;
+	userName = "TRDJ90";
+	userEmail = "dontmail@example.com";
+  };
 
   home.packages = with pkgs; [
-      git
       htop
       neovim
       firefox
       alacritty 
-  ];	
+      exa
+  ];
 }
