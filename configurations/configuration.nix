@@ -89,24 +89,15 @@ in
   environment.systemPackages = with pkgs; [
      vim
      git
-     wget
-     wayland	
+     wget	
+     fish
   ];
   
+  users.defaultUserShell = pkgs.fish;
+
+  environment.shells = with pkgs; [fish];
   environment.variables.EDITOR = "vim";
   environment.variables.TERMINAL = "alacritty";
-   
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
- 
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
   
   system.autoUpgrade = {
 	enable = true;
