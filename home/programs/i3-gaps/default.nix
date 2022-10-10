@@ -25,7 +25,7 @@ in {
 
 	gaps = {
 	  inner = 10;
-	  outer = 5;
+	  outer = 4;
 	};
       };
     };

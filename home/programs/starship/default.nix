@@ -20,8 +20,8 @@
       };
       
       character = {
-        success_symbol = "[](bold green)";
-        format = "[--->](bold green)";
+        success_symbol = "[➜](bold green)";
+        format = "[└─>](bold green) ";
       };
     };
   };
