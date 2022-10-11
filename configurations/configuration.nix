@@ -3,19 +3,20 @@ let
   user="thubie";
 in
 {
-  imports =
-    [       
-       ./hardware-configuration.nix
-    ];
+  imports = [       
+    ./hardware-configuration.nix
+  ];
+
+  #virtualisation.vmware.guest.enable = true;
 
   # Use the systemd-boot EFI boot loader.
   boot = {
     cleanTmpDir = true;
     loader = {
-	systemd-boot.enable = true;
-	systemd-boot.editor = false;
-	efi.canTouchEfiVariables = true;
-	timeout = 5;
+	    systemd-boot.enable = true;
+	    systemd-boot.editor = false;
+	    efi.canTouchEfiVariables = true;
+	    timeout = 5;
     };
   };
 
@@ -24,23 +25,23 @@ in
   
   fonts = {
     fonts = with pkgs; [
-	jetbrains-mono
-	(nerdfonts.override { fonts = ["JetBrainsMono" ]; })
+	    jetbrains-mono
+	    (nerdfonts.override { fonts = ["JetBrainsMono" ]; })
     ];
 
     fontconfig = {
-	hinting.autohint = true;
-	defaultFonts = {
-	  emoji = ["OpenMoji Color"];
-	};
+	    hinting.autohint = true;
+	    defaultFonts = {
+	      emoji = ["OpenMoji Color"];
+	    };
     };
   };
 	
   hardware = {
-	opengl = {
-		enable = true;
-		driSupport = true;
-	};
+	  opengl = {
+		  enable = true;
+		  driSupport = true;
+	  };
   };
   
 
@@ -100,18 +101,18 @@ in
   environment.variables.TERMINAL = "alacritty";
   
   system.autoUpgrade = {
-	enable = true;
-	channel = "https://nixos.org/channels/nixos-unstable";
+	  enable = true;
+	  channel = "https://nixos.org/channels/nixos-unstable";
   };
 
   nix = {
-	settings.auto-optimise-store = true;
-	gc = {
-		automatic = true;
-		dates = "weekly";
-		options = "--delete-older-than 7d";
-	};
-        extraOptions = "experimental-features = nix-command flakes";
+	  settings.auto-optimise-store = true;
+	  gc = {
+		  automatic = true;
+		  dates = "weekly";
+		  options = "--delete-older-than 7d";
+	  };
+    extraOptions = "experimental-features = nix-command flakes";
   };
 
   system.stateVersion = "22.11"; # Did you read the comment?
