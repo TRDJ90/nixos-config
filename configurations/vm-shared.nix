@@ -76,12 +76,12 @@
       #dpi = 220;
 
       desktopManager = {
-        plasma5.enable = false;
+        plasma5.enable = true;
         #wallpaper.mode = "fill";
       };
 
       displayManager = {
-        #defaultSession = "none+i3";
+        defaultSession = "none+Hyprland";
         sddm.enable = true;
 
         sessionCommands = ''
@@ -99,7 +99,9 @@
   environment.systemPackages = with pkgs; [
     vim
     git
-    wget	
+    wget
+    alacritty
+    kitty
     gnumake
     killall
     rxvt-unicode-unwrapped
