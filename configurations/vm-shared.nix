@@ -70,26 +70,32 @@
       # kdbInteractiveAuthentication = false;
     };
 
-    xserver = {
+     xserver = {
       enable = true;
       layout = "us";
-      #dpi = 220;
-
-      desktopManager = {
-        plasma5.enable = true;
-        #wallpaper.mode = "fill";
+      libinput = {
+        enable = true;
+        mouse = {
+          accelProfile = "flat";
+          middleEmulation = false;
+        };
       };
 
       displayManager = {
-        sddm.enable = true;
+        defaultSession = "none+i3";
+        sddm.autoNumlock = true;
+
+        autoLogin = {
+          enable = true;
+          user = user;
+        };
       };
 
-      #windowManager.i3 = {
-      #  enable = true;
-        #package = pkgs.i3-gaps;
-      #};
+      windowManager.i3 = {
+        enable = true;
+        package = pkgs.i3-gaps;
+      };
     };
-  };
 
   environment.systemPackages = with pkgs; [
     vim
