@@ -12,15 +12,15 @@
    
   programs.bash = {
     enable = true;
-    initExtra = ''
-      fish
-    '';
+    #initExtra = ''
+    #  fish
+    #'';
   };
      
-  programs.fish.enable = true;
-  programs.fish.interactiveShellInit = ''
-    starship init fish | source
-  '';
+  #programs.fish.enable = true;
+  #programs.fish.interactiveShellInit = ''
+  #  starship init fish | source
+  #'';
     
   programs.git = {
 	  enable = true;
@@ -34,8 +34,6 @@
     alacritty 
     helix
     exa
-    feh
-    xclip
     
     #LSP servers
     rnix-lsp

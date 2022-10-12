@@ -102,7 +102,7 @@
     wget	
     gnumake
     killall
-    rxvt_unicode
+    rxvt-unicode-unwrapped
     xclip
     niv
 
