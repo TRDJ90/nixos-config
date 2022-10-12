@@ -87,7 +87,7 @@
 
         autoLogin = {
           enable = true;
-          user = user;
+          user = thubie;
         };
       };
 
