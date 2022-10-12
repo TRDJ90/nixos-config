@@ -2,53 +2,42 @@
   description = "A very basic flake";
   
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+		#nixpkgs.url = "github:nixos/nixpkgs/release-22.05";
+		#nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     
     home-manager = {
 			url = "github:nix-community/home-manager";
 			inputs.nixpkgs.follows = "nixpkgs";
     };
     
+		/*
     nur = {
 			url = "github:nix-community/NUR";
 			inputs.nixpkgs.follows = "nixpkgs";
     };
-		
-		hyprland = {
-			url = "github:hyprwm/Hyprland";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
+		*/
+		neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
   	
-  outputs = { self, nixpkgs, home-manager, nur, hyprland, ... }: 
-	let
-		system = "aarch64-linux";
+  outputs = { self, nixpkgs, home-manager, ... }@inputs : let
 
-		pkgs = import nixpkgs {
-			inherit system;
-			config.allowUnfree = true;
-		};
+		#lib = nixpkgs.lib;
+		mkVM = import ./lib/mkvm.nix;
 
-		lib = nixpkgs.lib;
+		#pkgs = import nixpkgs {
+		#	inherit system;
+	  #	config.allowUnfree = true;
+		#};
+
+		overlays = [
+			inputs.neovim-nightly-overlay.overlay
+		];		
 	in {
-		nixosConfigurations = {
-			nixos = lib.nixosSystem {
-				inherit system;
-				modules = [
-					# hyprland.nixosModules.default
-					# { programs.hyprland.enable = true; }
-					./configurations/configuration.nix
-					home-manager.nixosModules.home-manager {
-						home-manager.useGlobalPkgs = true;
-						home-manager.useUserPackages = true;
-						home-manager.users.thubie = {
-							imports = [ ./home/home.nix ];
-						};
-					}
-				];
-			};
-			#vm
-			#darwin
-		};
+		nixosConfigurations.parallels-aarch64 = mkVM "parallels-aarch64" {
+      inherit overlays nixpkgs home-manager;
+      system = "aarch64-linux";
+      user   = "thubie";
+    };
 	};
 }
