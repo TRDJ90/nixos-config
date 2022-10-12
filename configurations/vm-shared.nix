@@ -111,8 +111,8 @@
     (writeShellScriptBin "xrandr-auto" ''
       xrandr --output Virtual-1 --auto
     '')
+  ];
 
-  ]
   nixpkgs.config.allowUnfree =true;
 
   #users.defaultUserShell = pkgs.fish;
