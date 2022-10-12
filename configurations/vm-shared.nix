@@ -32,7 +32,16 @@
     };
   };
 
+  # The global useDHCP flag is deprecated, therefore explicitly set to false here.
+  # Per-interface useDHCP will be mandatory in the future, so this generated config
+  # replicates the default behaviour.
+  networking.useDHCP = false;
+
+  # Don't require password for sudo
+  security.sudo.wheelNeedsPassword = false;
+
   time.timeZone = "Europe/Amsterdam";
+  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   
   fonts = {
@@ -63,33 +72,54 @@
 
     xserver = {
       enable = true;
-      #layout = "us";
-      libinput = {
-        enable = true;
-        mouse = {
-          accelProfile = "flat";
-          middleEmulation = false;
-        };
-      };
+      layout = "us";
+      dpi = 220;
+
+      desktopManager = {
+        xterm.enable = false;
+        wallpaper.mode = "fill";
+      }
 
       displayManager = {
         defaultSession = "none+i3";
-        sddm.autoNumlock = true;
+        lightdm.enable = true;
+
+        sessionCommands = ''
+          ${pkgs.xorg.xset}/bin/xset r rate 200 40
+        '';
       };
 
       windowManager.i3 = {
         enable = true;
-        package = pkgs.i3-gaps;
+        #package = pkgs.i3-gaps;
       };
     };
   };
 
   environment.systemPackages = with pkgs; [
-     vim
-     git
-     wget	
-     fish
+    vim
+    git
+    wget	
+    fish
+    gnumake
+    killall
+    rxvt_unicode
+    xclip
+    niv
+
+    # For hypervisors that support auto-resizing, this script forces it.
+    # I've noticed not everyone listens to the udev events so this is a hack.
+    (writeShellScriptBin "xrandr-auto" ''
+      xrandr --output Virtual-1 --auto
+    '')
+
+  ] ++ lib.optionals (currentSystemName == "vm-aarch64") [
+    # This is needed for the vmware user tools clipboard to work.
+    # You can test if you don't need this by deleting this and seeing
+    # if the clipboard sill works.
+    gtkmm3
   ];
+
   nixpkgs.config.allowUnfree =true;
 
   users.defaultUserShell = pkgs.fish;
