@@ -84,11 +84,6 @@
       displayManager = {
         defaultSession = "none+i3";
         sddm.autoNumlock = true;
-
-        autoLogin = {
-          enable = true;
-          user = thubie;
-        };
       };
 
       windowManager.i3 = {
