@@ -3,6 +3,17 @@
 {
   imports = (import ./programs) ++ (import ./services); 
 
+  xdg.enable = true;
+
+  home.sessionVariables = {
+    LANG = "en_US.UTF-8";
+    LC_CTYPE = "en_US.UTF-8";
+    LC_ALL = "en_US.UTF-8";
+    EDITOR = "nvim";
+    PAGER = "less -FirSwX";
+    MANPAGER = "sh -c 'col -bx | ${pkgs.bat}/bin/bat -l man -p'";
+  };
+
   home.username = "thubie";
   home.homeDirectory = "/home/thubie";
   home.stateVersion = "22.05";
@@ -29,6 +40,7 @@
   };
 
   home.packages = with pkgs; [
+    bat
     htop
     neovim
     alacritty 
