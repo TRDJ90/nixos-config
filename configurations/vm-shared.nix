@@ -78,7 +78,7 @@
       desktopManager = {
         xterm.enable = false;
         wallpaper.mode = "fill";
-      }
+      };
 
       displayManager = {
         defaultSession = "none+i3";
@@ -100,7 +100,6 @@
     vim
     git
     wget	
-    fish
     gnumake
     killall
     rxvt_unicode
