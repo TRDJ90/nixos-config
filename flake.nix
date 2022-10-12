@@ -41,7 +41,7 @@
 		];		
 	in {
 		nixosConfigurations.vmware-aarch64 = mkVM "vmware-aarch64" {
-			inherit nixpkgs home-manager, hyprland;
+			inherit nixpkgs home-manager hyprland;
 			system = "aarch64-linux";
 			user = "thubie";
 
@@ -66,26 +66,11 @@
           ];
         };
 			})];
-
-			/*
-			modules = [
-				# hyprland.nixosModules.default
-				# { programs.hyprland.enable = true; }
-				./configurations/configuration.nix
-				home-manager.nixosModules.home-manager {
-					home-manager.useGlobalPkgs = true;
-					home-manager.useUserPackages = true;
-					home-manager.users.thubie = {
-						imports = [ ./home/home.nix ];
-					};
-				}
-			];
-			*/
 		};
-		nixosConfigurations.darwin = mkVM "macbook" rec {
-			inherit nixpkgs home-manager;
-			system = "aarch64-linux";
-			user = "";
-		};
+		nixosConfigurations.parallels-aarch64 = mkVM "parallels-aarch64" rec {
+      inherit overlays nixpkgs home-manager;
+      system = "aarch64-linux";
+      user   = "thubie";
+    };
 	};
 }
