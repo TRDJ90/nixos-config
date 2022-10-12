@@ -46,6 +46,8 @@
     alacritty 
     helix
     exa
+    firefox
+    vscode
     
     #LSP servers
     rnix-lsp
