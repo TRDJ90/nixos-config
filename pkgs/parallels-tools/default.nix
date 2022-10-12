@@ -18,7 +18,7 @@
 }:
 
 stdenv.mkDerivation rec {
-  version = "18.0.0-53049";
+  version = "18.0.2-53077";
   pname = "prl-tools";
 
   # We download the full distribution to extract prl-tools-lin.iso from
