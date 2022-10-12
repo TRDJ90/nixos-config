@@ -34,6 +34,13 @@
 			inputs.neovim-nightly-overlay.overlay
 		];		
 	in {
+		nixosConfigurations.parallels-aarch64 = mkVM "parallels-aarch64" {
+      inherit overlays nixpkgs home-manager;
+      system = "aarch64-linux";
+      user   = "thubie";
+    };
+
+		/*
 		nixosConfigurations.vmware-aarch64 = mkVM "vmware-aarch64" {
 			inherit nixpkgs home-manager;
 			system = "aarch64-linux";
@@ -61,10 +68,6 @@
         };
 			})];
 		};
-		nixosConfigurations.parallels-aarch64 = mkVM "parallels-aarch64" rec {
-      inherit overlays nixpkgs home-manager;
-      system = "aarch64-linux";
-      user   = "thubie";
-    };
+		*/
 	};
 }
