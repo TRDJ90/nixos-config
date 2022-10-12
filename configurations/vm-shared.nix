@@ -73,26 +73,26 @@
     xserver = {
       enable = true;
       layout = "us";
-      dpi = 220;
+      #dpi = 220;
 
       desktopManager = {
-        xterm.enable = false;
-        wallpaper.mode = "fill";
+        plasma5.enable = false;
+        #wallpaper.mode = "fill";
       };
 
       displayManager = {
-        defaultSession = "none+i3";
-        lightdm.enable = true;
+        #defaultSession = "none+i3";
+        sddm.enable = true;
 
         sessionCommands = ''
           ${pkgs.xorg.xset}/bin/xset r rate 200 40
         '';
       };
 
-      windowManager.i3 = {
-        enable = true;
+      #windowManager.i3 = {
+      #  enable = true;
         #package = pkgs.i3-gaps;
-      };
+      #};
     };
   };
 
