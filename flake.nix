@@ -35,7 +35,7 @@
 		];		
 	in {
 		nixosConfigurations.vmware-aarch64 = mkVM "vmware-aarch64" {
-			inherit nixpkgs home-manager hyprland;
+			inherit nixpkgs home-manager;
 			system = "aarch64-linux";
 			user = "thubie";
 
