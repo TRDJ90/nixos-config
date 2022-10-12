@@ -82,10 +82,6 @@
 
       displayManager = {
         sddm.enable = true;
-
-        sessionCommands = ''
-          ${pkgs.xorg.xset}/bin/xset r rate 200 40
-        '';
       };
 
       #windowManager.i3 = {
@@ -106,6 +102,7 @@
     rxvt-unicode-unwrapped
     xclip
     niv
+    glxinfo
 
     # For hypervisors that support auto-resizing, this script forces it.
     # I've noticed not everyone listens to the udev events so this is a hack.

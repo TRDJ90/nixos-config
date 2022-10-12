@@ -17,16 +17,10 @@
 			inputs.nixpkgs.follows = "nixpkgs";
     };
 		*/
-
-		hyprland = {
-			url = "github:hyprwm/Hyprland";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
-
 		neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
   	
-  outputs = { self, nixpkgs, home-manager, hyprland, ... }@inputs : let
+  outputs = { self, nixpkgs, home-manager, ... }@inputs : let
 
 		#lib = nixpkgs.lib;
 		mkVM = import ./lib/mkvm.nix;
@@ -68,7 +62,7 @@
 			})];
 		};
 		nixosConfigurations.parallels-aarch64 = mkVM "parallels-aarch64" rec {
-      inherit overlays nixpkgs home-manager hyprland;
+      inherit overlays nixpkgs home-manager;
       system = "aarch64-linux";
       user   = "thubie";
     };
