@@ -50,7 +50,13 @@ in
       enable = true;
       packages = [ pkgs.dconf ];
     };
-  
+    
+    openssh = {
+      enable = true;
+      passwordAuthentication = false;
+      # kdbInteractiveAuthentication = false;
+    };
+    
     xserver = {
       enable = true;
       layout = "us";
