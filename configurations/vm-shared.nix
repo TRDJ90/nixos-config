@@ -121,11 +121,11 @@
 
   nixpkgs.config.allowUnfree =true;
 
-  users.defaultUserShell = pkgs.fish;
+  #users.defaultUserShell = pkgs.fish;
 
-  environment.shells = with pkgs; [fish];
-  environment.variables.EDITOR = "vim";
-  environment.variables.TERMINAL = "alacritty";
+  #environment.shells = with pkgs; [fish];
+  #environment.variables.EDITOR = "vim";
+  #environment.variables.TERMINAL = "alacritty";
   
   system.autoUpgrade = {
 	  enable = true;
