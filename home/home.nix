@@ -31,12 +31,9 @@
   home.packages = with pkgs; [
     htop
     neovim
-    firefox
     alacritty 
-    tdesktop
     helix
     exa
-    vscode
     feh
     xclip
     

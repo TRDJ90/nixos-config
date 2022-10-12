@@ -1,7 +1,7 @@
 { config, pkgs, lib, currentSystem, currentSystemName,... }:
 
 {
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  #boot.kernelPackages = pkgs.linuxPackages_latest;
 
   nix = {
     settings.auto-optimise-store = true;
@@ -63,7 +63,7 @@
 
     xserver = {
       enable = true;
-      layout = "us";
+      #layout = "us";
       libinput = {
         enable = true;
         mouse = {
@@ -75,11 +75,6 @@
       displayManager = {
         defaultSession = "none+i3";
         sddm.autoNumlock = true;
-
-        autoLogin = {
-          enable = true;
-          user = user;
-        };
       };
 
       windowManager.i3 = {

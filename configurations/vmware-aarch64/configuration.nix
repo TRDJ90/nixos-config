@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }: {
   imports = [
-    .../modules/vmware-guest.nix
-    ./vm-shared.nix
+    ../../modules/vmware-guest.nix
+    ../vm-shared.nix
   ];
 
   # Setup qemu so we can run x86_64 binaries
@@ -40,7 +40,6 @@
      isNormalUser = true;
      extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
   };
-
 }
 
 

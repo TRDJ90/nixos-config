@@ -45,11 +45,11 @@
 
 			overlays = overlays ++ [(final: prev: {
 				# TODO: drop after release following NixOS 22.05
-        open-vm-tools = inputs.nixpkgs-unstable.legacyPackages.${prev.system}.open-vm-tools;
+        open-vm-tools = inputs.nixpkgs.legacyPackages.${prev.system}.open-vm-tools;
 
         # We need Mesa on aarch64 to be built with "svga". The default Mesa
         # build does not include this: https://github.com/Mesa3D/mesa/blob/49efa73ba11c4cacaed0052b984e1fb884cf7600/meson.build#L192
-        mesa = prev.callPackage "${inputs.nixpkgs-unstable}/pkgs/development/libraries/mesa" {
+        mesa = prev.callPackage "${inputs.nixpkgs}/pkgs/development/libraries/mesa" {
           llvmPackages = final.llvmPackages_latest;
           inherit (final.darwin.apple_sdk.frameworks) OpenGL;
           inherit (final.darwin.apple_sdk.libs) Xplugin;
