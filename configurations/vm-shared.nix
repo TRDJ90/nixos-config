@@ -81,7 +81,7 @@
       };
 
       displayManager = {
-        defaultSession = "none+hyprland";
+        defaultSession = "hyprland";
         sddm.enable = true;
 
         sessionCommands = ''
