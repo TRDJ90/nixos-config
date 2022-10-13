@@ -31,7 +31,13 @@ in
     xdg.enable = true;
     #should set stateVerions here
     #home.stateVersion = "22.05";
+    
+    # copy home
+    home.file."wallpapers".source = ../../home/wallpapers; 
         
+    # copy config dotfiles
+    #xdg.configFile."sway/config".text = builtins.readFile ./sway.in;   
+                
     home.packages = with pkgs; [
         bat
         firefox
@@ -178,14 +184,8 @@ in
                 fonts.size = 15.0;
                 command = "waybar"; #You can change it if you want
                 position = "top";
-            }];
-            # Display device configuration
-            output = {
-                Virtual-1 = {
-                    # Set HIDP scale (pixel integer scaling)
-                    scale = "1";
-                };
-            };
+            }];  
+            output."*" = { bg = "~/wallpapers/green-misty-forest.jpeg fill"; };
             gaps.inner = 4;
         };
         # End of Sway-specificc Configuration
