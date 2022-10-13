@@ -7,8 +7,8 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.thubie = {
      isNormalUser = true;
-     home = "/home/thubie"
+     home = "/home/thubie";
      extraGroups = [ "wheel" "docker" ];
-     shell = pkgs.fish;
+     #shell = pkgs.fish;
   };
 }
