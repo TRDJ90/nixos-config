@@ -74,7 +74,9 @@ in
   networking.useDHCP = false;
   networking.firewall.enable = false;
 
-  
+  security.pam.services.swaylock = {
+    text = "auth include login";
+  };
 
   time.timeZone = "Europe/Amsterdam";
   i18n.defaultLocale = "en_US.UTF-8";
