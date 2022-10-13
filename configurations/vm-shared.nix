@@ -133,7 +133,7 @@ in
   };
 
   environment.systemPackages = with pkgs; [
-    neovim
+    vim
     git
     wget
     
