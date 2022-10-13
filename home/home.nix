@@ -14,9 +14,8 @@
     MANPAGER = "sh -c 'col -bx | ${pkgs.bat}/bin/bat -l man -p'";
   };
 
-  home.username = "thubie";
-  home.homeDirectory = "/home/thubie";
-  home.stateVersion = "22.05";
+  # https://github.com/nix-community/home-manager/pull/2408
+  environment.pathsToLink = [ "/share/fish" ];
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
