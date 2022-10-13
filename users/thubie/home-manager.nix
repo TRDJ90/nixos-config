@@ -40,11 +40,11 @@ in
 
         glxinfo
 
-         #sway stuff
-        sway
+        #sway stuff
+        #sway
         dbus-sway-environment
         configure-gtk
-        wayland
+        #wayland
         glib # gsettings
         dracula-theme # gtk theme
         gnome.adwaita-icon-theme  # default gnome cursors
