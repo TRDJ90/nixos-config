@@ -1,1 +1,1 @@
-exec output."*" = { bg = "~/wallpapers/green-misty-forest.jpeg fill
+output "*" bg ~/wallpapers/green-misty-forest.jpeg fill

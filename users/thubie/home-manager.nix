@@ -172,12 +172,15 @@ in
             
         };
     };
-
+    
+       
     # Use sway desktop environment with Wayland display server
     wayland.windowManager.sway = {
         enable = true;
         wrapperFeatures.gtk = true;
         # Sway-specific Configuration
+        
+        extraConfig = builtins.readFile ./sway;
         config = {
             terminal = "alacritty";
             menu = "wofi --show run";
@@ -190,6 +193,7 @@ in
             #output."*" = { bg = "~/wallpapers/green-misty-forest.jpeg fill"; };
             gaps.inner = 4;
         };
+        
         # End of Sway-specificc Configuration
         extraSessionCommands = ''
             export XDG_SESSION_TYPE=wayland
@@ -198,5 +202,4 @@ in
             export WLR_NO_HARDWARE_CURSORS=1
         '';
     };
-
 }
