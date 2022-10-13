@@ -167,7 +167,7 @@ in
             # Status bar(s)
             bars = [{
                 fonts.size = 15.0;
-                command = "waybar"; #You can change it if you want
+                #command = "waybar"; #You can change it if you want
                 position = "top";
             }];
             # Display device configuration
