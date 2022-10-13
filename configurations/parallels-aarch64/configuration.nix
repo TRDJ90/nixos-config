@@ -22,10 +22,4 @@
   # Lots of stuff that uses aarch64 that claims doesn't work, but actually works.
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowUnsupportedSystem = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.thubie = {
-     isNormalUser = true;
-     extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
-  };
 }
