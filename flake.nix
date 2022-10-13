@@ -10,15 +10,12 @@
 			url = "github:nix-community/home-manager/release-22.05";
 			inputs.nixpkgs.follows = "nixpkgs";
     };
-    
-		neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
   	
   outputs = { self, nixpkgs, home-manager, ... }@inputs : let
 		mkVM = import ./lib/mkvm.nix;
 
 		overlays = [
-			inputs.neovim-nightly-overlay.overlay
 		];		
 	in {
 		nixosConfigurations.parallels-aarch64 = mkVM "parallels-aarch64" {

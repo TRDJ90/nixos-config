@@ -148,8 +148,6 @@ in
     '')
   ];
 
-  
-
   services.pipewire = {
     enable = true;
   };
@@ -174,10 +172,8 @@ in
   #users.defaultUserShell = pkgs.fish;
 
   #environment.shells = with pkgs; [fish];
-  #environment.variables.EDITOR = "vim";
-  #environment.variables.TERMINAL = "alacritty";
-  
-  
+  environment.variables.EDITOR = "nvim";
+  environment.variables.TERMINAL = "alacritty";
 }
 
   
