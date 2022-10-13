@@ -24,6 +24,7 @@
 		overlays = [
 		];		
 	in {
+    /*
     nixosConfigurations.vmware-aarch64 = mkVM "vmware-aarch64" {
       inherit nixpkgs home-manager hyprland;
       system = "aarch64-linux";
@@ -51,6 +52,7 @@
         };
       })];
     };
+    */
 		nixosConfigurations.parallels-aarch64 = mkVM "parallels-aarch64" rec {
       inherit overlays nixpkgs home-manager hyprland;
       system = "aarch64-linux";
