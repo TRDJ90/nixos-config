@@ -29,7 +29,9 @@
 in
 {
     xdg.enable = true;
-
+    #should set stateVerions here
+    #home.stateVersion = "22.05";
+        
     home.packages = with pkgs; [
         bat
         firefox
@@ -41,11 +43,11 @@ in
         glxinfo
 
         #sway stuff
-        #sway
         dbus-sway-environment
         configure-gtk
-        #wayland
         glib # gsettings
+        waybar
+        
         dracula-theme # gtk theme
         gnome.adwaita-icon-theme  # default gnome cursors
         swaylock
@@ -53,7 +55,7 @@ in
         #grim # screenshot functionality
         #slurp # screenshot functionality
         wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
-        bemenu # wayland clone of dmenu
+        wofi # wayland clone of dmenu
         mako # notification system developed by swaywm maintainer
     ];
 
@@ -135,7 +137,7 @@ in
                 auto-completion = true;
                 rulers = [80 115];
             };
-            
+               
             editor.cursor-shape = {
                 insert = "bar";
                 normal = "block";
@@ -164,13 +166,13 @@ in
             menu = "wofi --show run";
             # Status bar(s)
             bars = [{
-            fonts.size = 15.0;
-            # command = "waybar"; You can change it if you want
-            position = "bottom";
+                fonts.size = 15.0;
+                command = "waybar"; #You can change it if you want
+                position = "top";
             }];
             # Display device configuration
             output = {
-                eDP-1 = {
+                Virtual-1 = {
                     # Set HIDP scale (pixel integer scaling)
                     scale = "1";
                 };
