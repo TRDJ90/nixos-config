@@ -36,7 +36,8 @@ in
         bat
         firefox
         alacritty
-            
+        neovim
+                    
         ripgrep
         tree
 
@@ -84,7 +85,7 @@ in
         enable = true;
         shellOptions = [];
         historyControl = [ "ignoredups" "ignorespace" ];
-        #initExtra = builtins.readFile ./bashrc;
+        initExtra = builtins.readFile ./bashrc;
 
         shellAliases = {
         ga = "git add";
@@ -98,6 +99,11 @@ in
         gt = "git tag";
         };
     };
+
+    programs.fish.enable = true;
+    programs.fish.interactiveShellInit = ''
+    	starship init fish | source
+    '';
 
     programs.starship = {
         enable = true;
@@ -167,7 +173,7 @@ in
             # Status bar(s)
             bars = [{
                 fonts.size = 15.0;
-                #command = "waybar"; #You can change it if you want
+                command = "waybar"; #You can change it if you want
                 position = "top";
             }];
             # Display device configuration
