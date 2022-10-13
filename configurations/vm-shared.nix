@@ -32,18 +32,6 @@ in
 {
   #boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  nix = {
-    settings.auto-optimise-store = true;
-	  gc = {
-		  automatic = true;
-		  dates = "weekly";
-		  options = "--delete-older-than 7d";
-	  };
-    extraOptions = "experimental-features = nix-command flakes";
-  };
-
-  nixpkgs.config.allowUnfree =true;
-
   hardware = {
 	  opengl = {
 		  enable = true;
@@ -63,21 +51,39 @@ in
     };
   };
 
-  # The global useDHCP flag is deprecated, therefore explicitly set to false here.
-  # Per-interface useDHCP will be mandatory in the future, so this generated config
-  # replicates the default behaviour.
-  networking.useDHCP = false;
+  system.autoUpgrade = {
+	  enable = true;
+	  channel = "https://nixos.org/channels/nixos-unstable";
+  };
 
-  # Don't require password for sudo
-  security.sudo.wheelNeedsPassword = false;
+  system.stateVersion = "22.11"; # Did you read the comment?
+
+  nix = {
+    settings.auto-optimise-store = true;
+	  gc = {
+		  automatic = true;
+		  dates = "weekly";
+		  options = "--delete-older-than 7d";
+	  };
+    extraOptions = "experimental-features = nix-command flakes";
+  };
+
+  nixpkgs.config.allowUnfree =true;
+
+  #Networking
+  networking.useDHCP = false;
+  networking.firewall.enable = false;
+
+  
 
   time.timeZone = "Europe/Amsterdam";
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   
   fonts = {
+    fontDir.enable = true;
     fonts = with pkgs; [
 	    jetbrains-mono
+      fira-code
 	    (nerdfonts.override { fonts = ["JetBrainsMono" ]; })
     ];
 
@@ -127,34 +133,13 @@ in
   };
 
   environment.systemPackages = with pkgs; [
-    vim
+    neovim
     git
     wget
-    alacritty
-    kitty
+    
     gnumake
     killall
     rxvt-unicode-unwrapped
-    xclip
-    niv
-    glxinfo
-
-    #sway stuff
-    sway
-    dbus-sway-environment
-    configure-gtk
-    wayland
-    glib # gsettings
-    dracula-theme # gtk theme
-    gnome.adwaita-icon-theme  # default gnome cursors
-    swaylock
-    swayidle
-    #grim # screenshot functionality
-    #slurp # screenshot functionality
-    wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
-    bemenu # wayland clone of dmenu
-    mako # notification system developed by swaywm maintainer
-
 
     # For hypervisors that support auto-resizing, this script forces it.
     # I've noticed not everyone listens to the udev events so this is a hack.
@@ -183,19 +168,16 @@ in
     wrapperFeatures.gtk = true;
   };
 
+  # Don't require password for sudo
+  security.sudo.wheelNeedsPassword = false;
+
   #users.defaultUserShell = pkgs.fish;
 
   #environment.shells = with pkgs; [fish];
   #environment.variables.EDITOR = "vim";
   #environment.variables.TERMINAL = "alacritty";
   
-  system.autoUpgrade = {
-	  enable = true;
-	  channel = "https://nixos.org/channels/nixos-unstable";
-  };
-
-  networking.firewall.enable = false;
-  system.stateVersion = "22.11"; # Did you read the comment?
+  
 }
 
   

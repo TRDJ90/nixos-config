@@ -16,7 +16,7 @@ nixpkgs.lib.nixosSystem rec {
     home-manager.nixosModules.home-manager {
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;
-      home-manager.users.${user} = import ../home/home.nix;
+      home-manager.users.${user} = import ../users/${user}/home-manager.nix;
     }
 
     # We expose some extra arguments so that our modules can parameterize
