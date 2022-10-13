@@ -160,12 +160,6 @@ in
     gtkUsePortal = true;
   };
 
-  # enable sway window manager
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true;
-  };
-
   # Don't require password for sudo
   security.sudo.wheelNeedsPassword = false;
 
