@@ -48,7 +48,8 @@ in
         configure-gtk
         glib # gsettings
         waybar
-        
+
+        swaybg
         dracula-theme # gtk theme
         gnome.adwaita-icon-theme  # default gnome cursors
         swaylock
@@ -73,10 +74,10 @@ in
         enable = true;
         settings.window = {
         decorations = "full";
-        opacity = 0.7;
+        opacity = 0.85;
         padding = {
-            x = 4;
-            y = 4;
+            x = 1;
+            y = 1;
         };
         };
     };
@@ -99,7 +100,9 @@ in
         gt = "git tag";
         };
     };
-
+    
+    #swaymsg output "*" bg ~/nixos-config/home/wallpapers/green-misty-forest.jpeg fill
+    
     programs.fish.enable = true;
     programs.fish.interactiveShellInit = ''
     	starship init fish | source
@@ -183,8 +186,15 @@ in
                     scale = "1";
                 };
             };
+            gaps.inner = 4;
         };
         # End of Sway-specificc Configuration
+        extraSessionCommands = ''
+            export XDG_SESSION_TYPE=wayland
+            export XDG_SESSION_DESKTOP=sway
+            export XDG_CURRENT_DESKTOP=sway    
+            export WLR_NO_HARDWARE_CURSORS=1
+        '';
     };
 
 }
