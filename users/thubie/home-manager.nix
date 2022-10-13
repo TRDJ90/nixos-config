@@ -36,7 +36,7 @@ in
     home.file."wallpapers".source = ../../home/wallpapers; 
         
     # copy config dotfiles
-    #xdg.configFile."sway/config".text = builtins.readFile ./sway.in;   
+    xdg.configFile."sway/config".text = builtins.readFile ./sway;   
                 
     home.packages = with pkgs; [
         bat
@@ -46,7 +46,9 @@ in
                     
         ripgrep
         tree
-
+        
+        vscode
+            
         glxinfo
 
         #sway stuff
@@ -65,6 +67,11 @@ in
         wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
         wofi # wayland clone of dmenu
         mako # notification system developed by swaywm maintainer
+        
+        # programming languages    
+            
+        # language servers        
+        rnix-lsp
     ];
 
     home.sessionVariables = {
@@ -147,10 +154,10 @@ in
             editor = {
                 line-number = "relative";
                 mouse = true;
-                gutters = ["diagnostics" "line-numbers"];
+                #gutters = ["diagnostics" "line-numbers"];
                 true-color = true;
                 auto-completion = true;
-                rulers = [80 115];
+                #rulers = [80 115];
             };
                
             editor.cursor-shape = {
@@ -163,11 +170,6 @@ in
                 display-messages = true;
             };
             
-            editor.whitespace.render = {
-                space = "all";
-                tab = "all";
-                newline = "none";
-            };
         };
     };
 
@@ -185,7 +187,7 @@ in
                 command = "waybar"; #You can change it if you want
                 position = "top";
             }];  
-            output."*" = { bg = "~/wallpapers/green-misty-forest.jpeg fill"; };
+            #output."*" = { bg = "~/wallpapers/green-misty-forest.jpeg fill"; };
             gaps.inner = 4;
         };
         # End of Sway-specificc Configuration
