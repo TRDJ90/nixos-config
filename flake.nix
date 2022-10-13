@@ -9,16 +9,23 @@
 			url = "github:nix-community/home-manager/release-22.05";
 			inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      # build with your own instance of nixpkgs
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
   	
-  outputs = { self, nixpkgs, home-manager, ... }@inputs : let
+  outputs = { self, nixpkgs, home-manager, hyprland,... }@inputs : let
 		mkVM = import ./lib/mkvm.nix;
 
 		overlays = [
 		];		
 	in {
     nixosConfigurations.vmware-aarch64 = mkVM "vmware-aarch64" {
-      inherit nixpkgs home-manager;
+      inherit nixpkgs home-manager hyprland;
       system = "aarch64-linux";
       user   = "thubie";
 
@@ -45,7 +52,7 @@
       })];
     };
 		nixosConfigurations.parallels-aarch64 = mkVM "parallels-aarch64" rec {
-      inherit overlays nixpkgs home-manager;
+      inherit overlays nixpkgs home-manager hyprland;
       system = "aarch64-linux";
       user   = "thubie";
     };
