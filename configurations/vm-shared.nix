@@ -45,10 +45,6 @@
   networking.useDHCP = false;
   networking.firewall.enable = false;
 
-  security.pam.services.swaylock = {
-    text = "auth include login";
-  };
-
   time.timeZone = "Europe/Amsterdam";
   i18n.defaultLocale = "en_US.UTF-8";
   
@@ -80,21 +76,20 @@
       # kdbInteractiveAuthentication = false;
     };
 
-     /* 
-     xserver = {
+    xserver = {
       enable = true;
       layout = "us";
-      libinput = {
-        enable = true;
-        mouse = {
-          accelProfile = "flat";
-          middleEmulation = false;
-        };
-      };
+      dpi = 220;
 
       displayManager = {
         defaultSession = "none+i3";
-        sddm.autoNumlock = true;
+        lightdm.enable = true;
+
+        # AARCH64: For now, on Apple Silicon, we must manually set the
+        # display resolution. This is a known issue with VMware Fusion.
+        sessionCommands = ''
+          ${pkgs.xorg.xset}/bin/xset r rate 200 40
+        '';
       };
 
       windowManager.i3 = {
@@ -102,7 +97,6 @@
         package = pkgs.i3-gaps;
       };
     };
-    */
   };
 
   environment.systemPackages = with pkgs; [
@@ -119,19 +113,12 @@
     (writeShellScriptBin "xrandr-auto" ''
       xrandr --output Virtual-1 --auto
     '')
+  ] ++ lib.optionals (currentSystemName == "vm-aarch64") [
+    # This is needed for the vmware user tools clipboard to work.
+    # You can test if you don't need this by deleting this and seeing
+    # if the clipboard sill works.
+    gtkmm3
   ];
-
-  services.pipewire = {
-    enable = true;
-  };
-
-  xdg.portal = {
-    enable = true;
-    wlr.enable = true;
-    # gtk portal needed to make gtk apps happy
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-    gtkUsePortal = true;
-  };
 
   # Don't require password for sudo
   security.sudo.wheelNeedsPassword = false;

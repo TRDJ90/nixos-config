@@ -36,14 +36,14 @@ in
     home.file."wallpapers".source = ../../home/wallpapers; 
         
     # copy config dotfiles
-    xdg.configFile."sway/config".text = builtins.readFile ./sway;   
+    xdg.configFile."i3/config".text = builtins.readFile ./i3;   
                 
     home.packages = with pkgs; [
         bat
         firefox
         alacritty
         neovim
-                    
+        feh            
         ripgrep
         tree
         
@@ -124,25 +124,25 @@ in
     programs.starship = {
         enable = true;
         settings = {
-        add_newline = true;
-        
-        username = {
-            format = "[$user](bold blue) ";
-            disabled = false;
-            show_always = true;
-        };
-        
-        hostname = {
-            ssh_only = false;
-            format = "on [$hostname](bold red) ";
-            trim_at = ".local";
-            disabled = true;
-        };
-        
-        character = {
-            success_symbol = "[➜](bold green)";
-            format = "[└─>](bold green) ";
-        };
+            add_newline = true;
+            
+            username = {
+                format = "[$user](bold blue) ";
+                disabled = false;
+                show_always = true;
+            };
+            
+            hostname = {
+                ssh_only = false;
+                format = "on [$hostname](bold red) ";
+                trim_at = ".local";
+                disabled = true;
+            };
+            
+            character = {
+                success_symbol = "[➜](bold green)";
+                format = "[└─>](bold green) ";
+            };
         };
     };
 
@@ -172,8 +172,8 @@ in
             
         };
     };
-    
-       
+
+    /*
     # Use sway desktop environment with Wayland display server
     wayland.windowManager.sway = {
         enable = true;
@@ -202,4 +202,6 @@ in
             export WLR_NO_HARDWARE_CURSORS=1
         '';
     };
+    */
+
 }
