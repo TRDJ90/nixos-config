@@ -7,7 +7,7 @@
     
     # copy home
     home.file."wallpapers".source = ../../home/wallpapers; 
-    home.file."./.config/awesome".source = ../awesome;
+    home.file."./.config/awesome".source = ./awesome;
 
     # copy config dotfiles
     xdg.configFile."i3/config".text = builtins.readFile ./i3;
