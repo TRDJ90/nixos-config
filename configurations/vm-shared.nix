@@ -82,14 +82,14 @@
       dpi = 220;
 
       displayManager = {
-        #defaultSession = "none+i3";
+        defaultSession = "none+awesome";
         lightdm.enable = true;
 
         # AARCH64: For now, on Apple Silicon, we must manually set the
         # display resolution. This is a known issue with VMware Fusion.
-        #sessionCommands = ''
-        #  ${pkgs.xorg.xset}/bin/xset r rate 200 50
-        #'';
+        sessionCommands = ''
+          ${pkgs.xorg.xset}/bin/xset r rate 200 40
+        '';
       };
 
       windowManager.awesome = {
