@@ -2,7 +2,8 @@
   description = "Nixos virtual machine";
   
   inputs = {
-		nixpkgs.url = "github:nixos/nixpkgs/release-22.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+		#nixpkgs.url = "github:nixos/nixpkgs/release-22.05";
 		nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     
     home-manager = {
