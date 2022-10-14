@@ -9,7 +9,8 @@
     home.file."wallpapers".source = ../../home/wallpapers; 
         
     # copy config dotfiles
-    xdg.configFile."i3/config".text = builtins.readFile ./i3;   
+    xdg.configFile."i3/config".text = builtins.readFile ./i3;
+    #xdg.configFile."polybar/config.ini".text = builtins.readFile ./polybar;
                 
     home.packages = with pkgs; [
         bat
@@ -39,6 +40,24 @@
         MANPAGER = "sh -c 'col -bx | ${pkgs.bat}/bin/bat -l man -p'";
     };
 
+    services.picom = {
+        enable = true;      
+    };
+    
+    services.polybar = {
+        enable =  true;
+        #should use builtins.readdFile to read polybar config
+        config = ./polybar;        
+        script = ''
+            killall -q polybar
+            while grep -x polybar >/dev/null; do sleep 1; done
+            polybar main
+        '';
+        package = pkgs.polybar.override {
+            i3GapsSupport =  true;      
+        };
+    };
+    
     programs.alacritty = {
         enable = true;
         settings.window = {

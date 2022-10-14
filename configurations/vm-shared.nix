@@ -79,7 +79,6 @@
     xserver = {
       enable = true;
       layout = "us";
-      dpi = 220;
 
       displayManager = {
         defaultSession = "none+i3";
