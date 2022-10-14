@@ -102,7 +102,7 @@
     vim
     git
     wget
-    
+    font-awesome
     gnumake
     killall
     rxvt-unicode-unwrapped
