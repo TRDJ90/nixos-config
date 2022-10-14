@@ -1,32 +1,5 @@
-{ config, lib, pkgs, ... }: let 
+{ config, lib, pkgs, ... }:
 
-    dbus-sway-environment = pkgs.writeTextFile {
-        name = "dbus-sway-environment";
-        destination = "/bin/dbus-sway-environment";
-        executable = true;
-
-        text = ''
-        dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
-        systemctl --user stop pipewire pipewire-media-session xdg-desktop-portal xdg-desktop-portal-wlr
-        systemctl --user start pipewire pipewire-media-session xdg-desktop-portal xdg-desktop-portal-wlr
-        '';
-    };
-
-    configure-gtk = pkgs.writeTextFile {
-        name = "configure-gtk";
-        destination = "/bin/configure-gtk";
-        executable = true;
-        text = let
-            schema = pkgs.gsettings-desktop-schemas;
-            datadir = "${schema}/share/gsettings-schemas/${schema.name}";
-        in ''
-            export XDG_DATA_DIRS=${datadir}:$XDG_DATA_DIRS
-            gnome_schema=org.gnome.desktop.interface
-            gsettings set $gnome_schema gtk-theme 'Dracula'
-            '';
-    };
-
-in
 {
     xdg.enable = true;
     #should set stateVerions here
@@ -51,23 +24,6 @@ in
             
         glxinfo
 
-        #sway stuff
-        dbus-sway-environment
-        configure-gtk
-        glib # gsettings
-        waybar
-
-        swaybg
-        dracula-theme # gtk theme
-        gnome.adwaita-icon-theme  # default gnome cursors
-        swaylock
-        swayidle
-        #grim # screenshot functionality
-        #slurp # screenshot functionality
-        wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
-        wofi # wayland clone of dmenu
-        mako # notification system developed by swaywm maintainer
-        
         # programming languages    
             
         # language servers        
@@ -113,8 +69,6 @@ in
         gt = "git tag";
         };
     };
-    
-    #swaymsg output "*" bg ~/nixos-config/home/wallpapers/green-misty-forest.jpeg fill
     
     programs.fish.enable = true;
     programs.fish.interactiveShellInit = ''
@@ -172,36 +126,4 @@ in
             
         };
     };
-
-    /*
-    # Use sway desktop environment with Wayland display server
-    wayland.windowManager.sway = {
-        enable = true;
-        wrapperFeatures.gtk = true;
-        # Sway-specific Configuration
-        
-        extraConfig = builtins.readFile ./sway;
-        config = {
-            terminal = "alacritty";
-            menu = "wofi --show run";
-            # Status bar(s)
-            bars = [{
-                fonts.size = 15.0;
-                command = "waybar"; #You can change it if you want
-                position = "top";
-            }];  
-            #output."*" = { bg = "~/wallpapers/green-misty-forest.jpeg fill"; };
-            gaps.inner = 4;
-        };
-        
-        # End of Sway-specificc Configuration
-        extraSessionCommands = ''
-            export XDG_SESSION_TYPE=wayland
-            export XDG_SESSION_DESKTOP=sway
-            export XDG_CURRENT_DESKTOP=sway    
-            export WLR_NO_HARDWARE_CURSORS=1
-        '';
-    };
-    */
-
 }
