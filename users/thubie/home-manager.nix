@@ -6,7 +6,7 @@
     #home.stateVersion = "22.05";
     
     # copy home
-    home.file."wallpapers".source = ../../home/wallpapers; 
+    home.file."wallpapers".source = ./wallpapers; 
     home.file."./.config/awesome".source = ./awesome;
 
     # copy config dotfiles
