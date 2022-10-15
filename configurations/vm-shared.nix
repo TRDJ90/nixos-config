@@ -83,7 +83,7 @@
 
       displayManager = {
         #defaultSession = "none+awesome";
-        gdm.enable = true;
+        lightdm.enable = true;
 
         # AARCH64: For now, on Apple Silicon, we must manually set the
         # display resolution. This is a known issue with VMware Fusion.
