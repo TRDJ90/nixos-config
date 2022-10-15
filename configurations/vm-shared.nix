@@ -113,7 +113,7 @@
       xrandr --output Virtual-1 --auto
       bash ~/.fehbg
     '')
-  ] ++ lib.optionals (currentSystemName == "vm-aarch64") [
+  ] ++ lib.optionals (currentSystemName == "vmware-aarch64") [
     # This is needed for the vmware user tools clipboard to work.
     # You can test if you don't need this by deleting this and seeing
     # if the clipboard sill works.

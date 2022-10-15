@@ -45,7 +45,7 @@
         };
       })];
     };
-    nixosConfigurations.parallels-aarch64 = mkVM "parallels-aarch64" {
+    nixosConfigurations.parallels-aarch64 = mkVM "parallels-aarch64" rec {
       inherit overlays nixpkgs home-manager;
       system = "aarch64-linux";
       user   = "thubie";
