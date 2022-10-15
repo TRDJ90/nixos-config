@@ -73,7 +73,6 @@
     openssh = {
       enable = true;
       passwordAuthentication = false;
-      # kdbInteractiveAuthentication = false;
     };
 
     xserver = {
@@ -113,7 +112,7 @@
       xrandr --output Virtual-1 --auto
       bash ~/.fehbg
     '')
-  ] ++ lib.optionals (currentSystemName == "vm-aarch64") [
+  ] ++ lib.optionals (currentSystemName == "vmware-aarch64") [
     # This is needed for the vmware user tools clipboard to work.
     # You can test if you don't need this by deleting this and seeing
     # if the clipboard sill works.
@@ -123,9 +122,8 @@
   # Don't require password for sudo
   security.sudo.wheelNeedsPassword = false;
 
-  #users.defaultUserShell = pkgs.fish;
-
-  #environment.shells = with pkgs; [fish];
+  users.defaultUserShell = pkgs.fish;
+  environment.shells = with pkgs; [fish];
   environment.variables.EDITOR = "nvim";
   environment.variables.TERMINAL = "alacritty";
 }
