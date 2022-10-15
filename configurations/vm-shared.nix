@@ -76,7 +76,7 @@
     };
 
     # setup windowing environment
-    services.xserver = {
+    xserver = {
       enable = true;
       layout = "us";
       dpi = 220;
