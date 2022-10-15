@@ -75,31 +75,32 @@
       passwordAuthentication = false;
     };
 
-   # setup windowing environment
-  services.xserver = {
-    enable = true;
-    layout = "us";
-    dpi = 220;
+    # setup windowing environment
+    services.xserver = {
+      enable = true;
+      layout = "us";
+      dpi = 220;
 
-    desktopManager = {
-      xterm.enable = false;
-      wallpaper.mode = "fill";
-    };
+      desktopManager = {
+        xterm.enable = false;
+        wallpaper.mode = "fill";
+      };
 
-    displayManager = {
-      defaultSession = "none+i3";
-      lightdm.enable = true;
+      displayManager = {
+        defaultSession = "none+i3";
+        lightdm.enable = true;
 
-      # AARCH64: For now, on Apple Silicon, we must manually set the
-      # display resolution. This is a known issue with VMware Fusion.
-      sessionCommands = ''
-        ${pkgs.xorg.xset}/bin/xset r rate 200 40
-      '';
-    };
+        # AARCH64: For now, on Apple Silicon, we must manually set the
+        # display resolution. This is a known issue with VMware Fusion.
+        sessionCommands = ''
+          ${pkgs.xorg.xset}/bin/xset r rate 200 40
+        '';
+      };
 
-    windowManager = {
-      i3.enable = true;
-      package = pkgs.i3-gaps;
+      windowManager = {
+        i3.enable = true;
+        package = pkgs.i3-gaps;
+      };
     };
   };
 
