@@ -1,3 +1,4 @@
+
 { config, pkgs, lib, currentSystem, currentSystemName,... }:
 
 {
@@ -36,7 +37,11 @@
 		  dates = "weekly";
 		  options = "--delete-older-than 7d";
 	  };
-    extraOptions = "experimental-features = nix-command flakes";
+    extraOptions = ''
+      experimental-features = nix-command flakes
+      keep-outputs = true
+      keep-derivations = true
+    '';
   };
 
   nixpkgs.config.allowUnfree =true;
@@ -73,18 +78,13 @@
     openssh = {
       enable = true;
       passwordAuthentication = false;
+      # kdbInteractiveAuthentication = false;
     };
 
-    # setup windowing environment
     xserver = {
       enable = true;
       layout = "us";
       dpi = 220;
-
-      desktopManager = {
-        xterm.enable = false;
-        wallpaper.mode = "fill";
-      };
 
       displayManager = {
         defaultSession = "none+i3";
@@ -97,8 +97,8 @@
         '';
       };
 
-      windowManager = {
-        i3.enable = true;
+      windowManager.i3 = {
+        enable = true;
         package = pkgs.i3-gaps;
       };
     };
@@ -119,7 +119,7 @@
       xrandr --output Virtual-1 --auto
       bash ~/.fehbg
     '')
-  ] ++ lib.optionals (currentSystemName == "vmware-aarch64") [
+  ] ++ lib.optionals (currentSystemName == "vm-aarch64") [
     # This is needed for the vmware user tools clipboard to work.
     # You can test if you don't need this by deleting this and seeing
     # if the clipboard sill works.
@@ -129,8 +129,9 @@
   # Don't require password for sudo
   security.sudo.wheelNeedsPassword = false;
 
-  users.defaultUserShell = pkgs.fish;
-  environment.shells = with pkgs; [fish];
+  #users.defaultUserShell = pkgs.fish;
+
+  #environment.shells = with pkgs; [fish];
   environment.variables.EDITOR = "nvim";
   environment.variables.TERMINAL = "alacritty";
 }
