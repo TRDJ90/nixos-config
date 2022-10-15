@@ -30,6 +30,7 @@
             
         # language servers        
         rnix-lsp
+        sumneko-lua-language-server        
     ];
 
     home.sessionVariables = {

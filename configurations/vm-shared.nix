@@ -73,7 +73,6 @@
     openssh = {
       enable = true;
       passwordAuthentication = false;
-      # kdbInteractiveAuthentication = false;
     };
 
     xserver = {
@@ -123,9 +122,8 @@
   # Don't require password for sudo
   security.sudo.wheelNeedsPassword = false;
 
-  #users.defaultUserShell = pkgs.fish;
-
-  #environment.shells = with pkgs; [fish];
+  users.defaultUserShell = pkgs.fish;
+  environment.shells = with pkgs; [fish];
   environment.variables.EDITOR = "nvim";
   environment.variables.TERMINAL = "alacritty";
 }
