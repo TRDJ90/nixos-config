@@ -43,7 +43,10 @@
     };
 
     services.picom = {
-        enable = true;      
+        enable = true;
+        experimentalBackends = true; 
+        activeOpacity = 0.8;
+        inactiveOpacity = 0.2;     
     };
     
     services.polybar = {
