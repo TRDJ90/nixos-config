@@ -205,6 +205,7 @@ gaps inner 8
 smart_borders on
 
 exec polybar main &
+exec polybar-msg cmd restart
 exec feh --bg-fill ~/wallpapers/green-misty-forest.jpeg
 
 
