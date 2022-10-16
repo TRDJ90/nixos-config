@@ -93,6 +93,7 @@
         # AARCH64: For now, on Apple Silicon, we must manually set the
         # display resolution. This is a known issue with VMware Fusion.
         sessionCommands = ''
+          ${pkgs.bspwm}/bin/bspc wm -r source $HOME/.config/bspwm/bspwmrc
           ${pkgs.xorg.xset}/bin/xset r rate 500 40
         '';
       };
