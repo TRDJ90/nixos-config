@@ -93,7 +93,7 @@
         # AARCH64: For now, on Apple Silicon, we must manually set the
         # display resolution. This is a known issue with VMware Fusion.
         sessionCommands = ''
-          ${pkgs.xorg.xset}/bin/xset r rate 200 40
+          ${pkgs.xorg.xset}/bin/xset r rate 500 40
         '';
       };
 

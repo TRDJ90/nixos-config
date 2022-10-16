@@ -44,19 +44,18 @@
 
     services.picom = {
         enable = true;
-        experimentalBackends = true; 
-        activeOpacity = 0.8;
-        inactiveOpacity = 0.2;     
+        #experimentalBackends = true; 
+        activeOpacity = "0.85";
+        inactiveOpacity = "0.5";     
     };
     
     services.polybar = {
         enable =  true;
         #should use builtins.readdFile to read polybar config
-        config = ./polybar;        
+        config = ./polybar/config.ini;        
         script = ''
-            killall -q polybar
-            while grep -x polybar >/dev/null; do sleep 1; done
-            polybar main
+            killall polybar
+            polybar -c ~/.config/polybar/config main
         '';
         package = pkgs.polybar.override {
             i3GapsSupport =  true;      
