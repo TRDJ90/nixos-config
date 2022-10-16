@@ -99,6 +99,8 @@
 
       windowManager.bspwm = {
         enable = true;
+        configFile = "/home/thubie/.config/bspwm/bspwmrc";
+		    sxhkd.configFile= "/home/thubie/.config/sxhkd/sxhkdrc";
       };
     };
   };
