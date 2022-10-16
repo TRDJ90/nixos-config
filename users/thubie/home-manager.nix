@@ -14,7 +14,7 @@
     # copy config dotfiles
     xdg.configFile."i3/config".text = builtins.readFile ./i3;
     xdg.configFile."picom/picom.conf".source = ./picom/picom.conf;
-    xdg.configFile."/awesome".source = ./awesome;
+    xdg.configFile."awesome".source = ./awesome;
     
     #xdg.configFile."/bspwm".source = ./bspwm;
     #xdg.configFile."/sxhkd".source = ./sxhkd;
