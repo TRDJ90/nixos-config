@@ -12,6 +12,10 @@
     xdg.configFile."i3/config".text = builtins.readFile ./i3;
     xdg.configFile."picom/picom.conf".source = ./picom/picom.conf;
     xdg.configFile."/awesome".source = ./awesome;
+    
+    xdg.configFile."/bspwm".source = ./bspwm;
+    xdg.configFile."/sxhkd".source = ./sxhkd;
+    xdg.configFile."/rofi".source = ./rofi;
     #xdg.configFile."polybar/config.ini".text = builtins.readFile ./polybar;
                 
     home.packages = with pkgs; [
@@ -22,6 +26,9 @@
         feh            
         ripgrep
         tree
+        rofi
+        bspwm
+        sxhkd
         
         vscode
             
