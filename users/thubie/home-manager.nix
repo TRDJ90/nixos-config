@@ -7,7 +7,6 @@
     
     # copy home
     home.file."wallpapers".source = ./wallpapers; 
-    home.file."./.c"
 
     # copy config dotfiles
     xdg.configFile."i3/config".text = builtins.readFile ./i3;
