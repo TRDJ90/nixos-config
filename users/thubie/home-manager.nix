@@ -8,14 +8,16 @@
     # copy home
     home.file."wallpapers".source = ./wallpapers; 
     #home.file."./.config/bspwm".source = ./bspwm;
-    home.file."./.config/sxhkd".source = ./sxhkd;
-    home.file."./.config/rofi".source = ./rofi;
+    #home.file."./.config/sxhkd".source = ./sxhkd;
+    #home.file."./.config/rofi".source = ./rofi;
 
     # copy config dotfiles
     xdg.configFile."i3/config".text = builtins.readFile ./i3;
     xdg.configFile."picom/picom.conf".source = ./picom/picom.conf;
     xdg.configFile."awesome".source = ./awesome;
     xdg.configFile."bspwm".source = ./bspwm;
+    xdg.configFile."sxhkd".source = ./sxhkd;
+    xdg.configFile."rofi".source = ./rofi;
     
     #xdg.configFile."/bspwm".source = ./bspwm;
     #xdg.configFile."/sxhkd".source = ./sxhkd;

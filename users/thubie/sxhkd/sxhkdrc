@@ -7,7 +7,8 @@ super + Return
 	alacritty
 
 # program launcher
-super + @space
+# super + @space
+super + r
   rofi -show drun -theme onedark	
 
 # make sxhkd reload its configuration files:
