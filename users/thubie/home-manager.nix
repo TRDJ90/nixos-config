@@ -7,10 +7,12 @@
     
     # copy home
     home.file."wallpapers".source = ./wallpapers; 
-    home.file."./.config/awesome".source = ./awesome;
+    home.file."./.c"
 
     # copy config dotfiles
     xdg.configFile."i3/config".text = builtins.readFile ./i3;
+    xdg.configFile."picom/picom.conf".source = ./picom/picom.conf;
+    xdg.configFile."/awesome".source = ./awesome;
     #xdg.configFile."polybar/config.ini".text = builtins.readFile ./polybar;
                 
     home.packages = with pkgs; [
