@@ -26,7 +26,7 @@
                 
     home.packages = with pkgs; [
         bat
-        #firefox
+        firefox
         alacritty
         neovim
         feh            
