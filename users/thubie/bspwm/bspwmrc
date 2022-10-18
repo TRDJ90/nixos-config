@@ -3,7 +3,7 @@
 #autostart
 pgrep -x sxhkd > /dev/null || sxhkd &
 pkill picom
-picom --experimental-backends &
+picom  #--experimental-backends &
 feh --bg-fill ~/wallpapers/green-misty-forest.jpeg
 ~/.config/polybar/launch.sh 
 
