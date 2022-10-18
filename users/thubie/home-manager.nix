@@ -66,7 +66,9 @@
     
     services.polybar = {
         enable =  true;
-        #should use builtins.readdFile to read polybar config
+        #should use builtins.readdFile to read polybar config        
+        script = ''
+        '';
         package = pkgs.polybar.override {
             i3GapsSupport =  true;      
         };
