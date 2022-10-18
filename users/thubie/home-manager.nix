@@ -84,9 +84,9 @@
         enable = true;
         settings.window = {
         decorations = "full";
-        opacity = 0.85;
+        opacity = 0.80;
         padding = {
-            x = 2;
+            x = 0;
             y = 6;
         };
         };
