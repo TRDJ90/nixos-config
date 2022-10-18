@@ -68,6 +68,8 @@
         enable =  true;
         #should use builtins.readdFile to read polybar config        
         script = ''
+            killall polybar
+            polybar -c ~/.config/polybar/config main
         '';
         package = pkgs.polybar.override {
             i3GapsSupport =  true;      
