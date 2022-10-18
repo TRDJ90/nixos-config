@@ -1,2 +1,2 @@
 killall polybar
-polybar -c ~/.config/polybar/config main
+polybar -c ~/.config/polybar/config.ini main
