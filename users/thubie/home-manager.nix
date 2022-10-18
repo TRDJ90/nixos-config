@@ -18,7 +18,7 @@
     xdg.configFile."bspwm".source = ./bspwm;
     xdg.configFile."sxhkd".source = ./sxhkd;
     xdg.configFile."rofi".source = ./rofi;
-    xdg.configFile."polybar".source = ./polybar;
+    #xdg.configFile."polybar".source = ./polybar;
     
     #xdg.configFile."/bspwm".source = ./bspwm;
     #xdg.configFile."/sxhkd".source = ./sxhkd;
@@ -66,7 +66,8 @@
     
     services.polybar = {
         enable =  true;
-        #should use builtins.readdFile to read polybar config        
+        #should use builtins.readdFile to read polybar config
+        config = ./polybar/config.ini;          
         script = ''
             killall polybar
             polybar -c ~/.config/polybar/config main
