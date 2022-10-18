@@ -4,7 +4,7 @@
 pgrep -x sxhkd > /dev/null || sxhkd & 
 polybar -c ~/.config/polybar/config main &
 pkill picom
-picom  #--experimental-backends &
+picom --experimental-backends &
 feh --bg-fill ~/wallpapers/green-misty-forest.jpeg
 
 
