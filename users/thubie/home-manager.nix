@@ -42,7 +42,8 @@
             
         glxinfo
 
-        # programming languages    
+        # programming languages
+        clang    
             
         # language servers        
         rnix-lsp
