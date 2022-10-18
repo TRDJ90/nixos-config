@@ -85,8 +85,8 @@
         decorations = "full";
         opacity = 0.85;
         padding = {
-            x = 3;
-            y = 3;
+            x = 2;
+            y = 6;
         };
         };
     };
