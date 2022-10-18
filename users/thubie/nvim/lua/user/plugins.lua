@@ -38,7 +38,7 @@ return require('packer').startup(function(use)
     use { "SmiteshP/nvim-navic", requires = "neovim/nvim-lspconfig" }
     use { "akinsho/bufferline.nvim", tag = "v2.*", requires = "kyazdani42/nvim-web-devicons" }
     use { "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" }
-	use { "nvim-treesitter/nvim-treesitter", run = ':TSUpdate' }
+	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
     use { 'tanvirtin/monokai.nvim' }
 	use { 'sainnhe/everforest' }
