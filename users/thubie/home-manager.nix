@@ -19,6 +19,7 @@
     xdg.configFile."sxhkd".source = ./sxhkd;
     xdg.configFile."rofi".source = ./rofi;
     xdg.configFile."polybar".source = ./polybar;
+    xdg.configFile."nvim".source = ./nvim;
     
     #xdg.configFile."/bspwm".source = ./bspwm;
     #xdg.configFile."/sxhkd".source = ./sxhkd;
