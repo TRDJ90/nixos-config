@@ -18,7 +18,7 @@
     xdg.configFile."bspwm".source = ./bspwm;
     xdg.configFile."sxhkd".source = ./sxhkd;
     xdg.configFile."rofi".source = ./rofi;
-    #xdg.configFile."polybar".source = ./polybar;
+    xdg.configFile."polybar".source = ./polybar;
     
     #xdg.configFile."/bspwm".source = ./bspwm;
     #xdg.configFile."/sxhkd".source = ./sxhkd;
@@ -36,7 +36,7 @@
         rofi
         bspwm
         sxhkd
-        
+        polybar
         vscode
             
         glxinfo
@@ -64,6 +64,7 @@
         inactiveOpacity = "0.5";     
     };
     
+    /*
     services.polybar = {
         enable =  true;
         #should use builtins.readdFile to read polybar config
@@ -76,6 +77,7 @@
             i3GapsSupport =  true;      
         };
     };
+    */
     
     programs.alacritty = {
         enable = true;

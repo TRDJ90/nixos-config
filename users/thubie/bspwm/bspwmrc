@@ -2,7 +2,7 @@
 
 #autostart
 pgrep -x sxhkd > /dev/null || sxhkd &
-systemctl --user restart polybar -c ~/.config/polybar/config main &
+polybar -c ~/.config/polybar/config main &
 #pkill picom
 #picom  #--experimental-backends &
 #feh --bg-fill ~/wallpapers/green-misty-forest.jpeg
