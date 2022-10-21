@@ -35,7 +35,7 @@
         sxhkd
         polybar
         vscode
-            
+        
         glxinfo
 
         # programming languages

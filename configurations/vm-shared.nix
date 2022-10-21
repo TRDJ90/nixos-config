@@ -84,7 +84,7 @@
     xserver = {
       enable = true;
       layout = "us";
-      dpi = 220;
+      dpi = 110;
 
       displayManager = {
         defaultSession = "none+bspwm";
