@@ -8,7 +8,7 @@
 	  opengl = {
 		  enable = true;
 		  driSupport = true;
-      extraPackages = [ mesa.drivers ];
+      extraPackages = [ pkgs.mesa.drivers ];
 	  };
     video.hidpi.enable = true;
   };
