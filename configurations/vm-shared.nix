@@ -78,7 +78,7 @@
     openssh = {
       enable = true;
       passwordAuthentication = false;
-      # kdbInteractiveAuthentication = false;
+      kdbInteractiveAuthentication = false;
     };
 
     xserver = {
