@@ -87,7 +87,7 @@
       dpi = 110;
 
       displayManager = {
-        defaultSession = "none+leftwm";
+        defaultSession = "none+bspwm";
         lightdm.enable = true;
 
         sessionCommands = ''
@@ -95,8 +95,10 @@
         '';
       };
 
-      windowManager.leftwm = {
+      windowManager.bspwm = {
         enable = true;
+        configFile = "/home/thubie/.config/bspwm/bspwmrc";
+		    sxhkd.configFile= "/home/thubie/.config/sxhkd/sxhkdrc";
       };
     };
   };
