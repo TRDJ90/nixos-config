@@ -110,6 +110,7 @@
     font-awesome
     gnumake
     killall
+    pciutils
     rxvt-unicode-unwrapped
 
     # For hypervisors that support auto-resizing, this script forces it.
