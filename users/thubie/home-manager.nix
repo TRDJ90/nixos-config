@@ -5,7 +5,8 @@
     #home.stateVersion = "22.05";
     
     # copy home
-    home.file."wallpapers".source = ./wallpapers; 
+    home.file."wallpapers".source = ./wallpapers;
+    
 
     xdg.enable = true;
 
@@ -19,6 +20,7 @@
     xdg.configFile."polybar".source = ./polybar;
     xdg.configFile."nvim".source = ./nvim;
     xdg.configFile."leftwm".source = ./leftwm;
+    xdg.configFile."leftwm/themes/current".source = ./leftwm/themes/orange-forest;
                  
     home.packages = with pkgs; [
         bat
