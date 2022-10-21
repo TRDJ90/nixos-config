@@ -20,7 +20,7 @@
     xdg.configFile."polybar".source = ./polybar;
     xdg.configFile."nvim".source = ./nvim;
     xdg.configFile."leftwm".source = ./leftwm;
-    xdg.configFile."leftwm/themes/current".source = config.lib.file.mkOutOfStoreSymlink ./leftwm/themes/orange-forest;
+    #xdg.configFile."leftwm/themes/current".source = config.lib.file.mkOutOfStoreSymlink ./leftwm/themes/orange-forest;
                  
     home.packages = with pkgs; [
         bat
