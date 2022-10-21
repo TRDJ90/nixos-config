@@ -78,7 +78,6 @@
     openssh = {
       enable = true;
       passwordAuthentication = false;
-      #kdbInteractiveAuthentication = false;
     };
 
     xserver = {
@@ -90,10 +89,7 @@
         defaultSession = "none+bspwm";
         lightdm.enable = true;
 
-        # AARCH64: For now, on Apple Silicon, we must manually set the
-        # display resolution. This is a known issue with VMware Fusion.
         sessionCommands = ''
-          ${pkgs.bspwm}/bin/bspc wm -r source $HOME/.config/bspwm/bspwmrc
           ${pkgs.xorg.xset}/bin/xset r rate 500 40
         '';
       };
@@ -121,11 +117,6 @@
       xrandr --output Virtual-1 --auto
       bspc wm -r
     '')
-  ] ++ lib.optionals (currentSystemName == "vm-aarch64") [
-    # This is needed for the vmware user tools clipboard to work.
-    # You can test if you don't need this by deleting this and seeing
-    # if the clipboard sill works.
-    gtkmm3
   ];
 
   # Don't require password for sudo
