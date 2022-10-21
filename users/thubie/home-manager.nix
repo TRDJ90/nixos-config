@@ -1,15 +1,13 @@
 { config, lib, pkgs, ... }:
 
 {
-    xdg.enable = true;
     #should set stateVerions here
     #home.stateVersion = "22.05";
     
     # copy home
     home.file."wallpapers".source = ./wallpapers; 
-    #home.file."./.config/bspwm".source = ./bspwm;
-    #home.file."./.config/sxhkd".source = ./sxhkd;
-    #home.file."./.config/rofi".source = ./rofi;
+
+    xdg.enable = true;
 
     # copy config dotfiles
     xdg.configFile."i3/config".text = builtins.readFile ./i3;
@@ -39,10 +37,13 @@
         glxinfo
 
         # programming languages
-        clang    
+        clang
+        rustc
+        cargo    
             
         # language servers        
         rnix-lsp
+        rust-analyzer
         sumneko-lua-language-server        
     ];
 
@@ -58,22 +59,7 @@
     services.picom = {
         enable = true;   
     };
-    
-    /*
-    services.polybar = {
-        enable =  true;
-        #should use builtins.readdFile to read polybar config
-        config = ./polybar/config.ini;          
-        script = ''
-            killall polybar
-            polybar -c ~/.config/polybar/config main
-        '';
-        package = pkgs.polybar.override {
-            i3GapsSupport =  true;      
-        };
-    };
-    */
-    
+        
     programs.alacritty = {
         enable = true;
         settings.window = {
@@ -143,10 +129,10 @@
             editor = {
                 line-number = "relative";
                 mouse = true;
-                #gutters = ["diagnostics" "line-numbers"];
+                gutters = ["diagnostics" "line-numbers"];
                 true-color = true;
                 auto-completion = true;
-                #rulers = [80 115];
+                rulers = [80 115];
             };
                
             editor.cursor-shape = {
@@ -158,15 +144,6 @@
             editor.lsp = {
                 display-messages = true;
             };
-            
         };
-    };
-
-    # Make cursor not tiny on HiDPI screens
-    home.pointerCursor = {
-        name = "Vanilla-DMZ";
-        package = pkgs.vanilla-dmz;
-        size = 128;
-        x11.enable = true;
     };
 }
