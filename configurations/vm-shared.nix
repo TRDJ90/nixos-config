@@ -84,22 +84,28 @@
     xserver = {
       enable = true;
       layout = "us";
-      dpi = 110;
+      dpi = 140;
 
       displayManager = {
-        defaultSession = "none+bspwm";
+        #defaultSession = "none+bspwm";
+        defaultSession = "none+qtile";
         lightdm.enable = true;
 
         sessionCommands = ''
           ${pkgs.xorg.xset}/bin/xset r rate 500 40
         '';
       };
-
+        
+      windowManager.qtile = {
+        enable = true;
+      };  
+      /*  
       windowManager.bspwm = {
         enable = true;
         configFile = "/home/thubie/.config/bspwm/bspwmrc";
-		    sxhkd.configFile= "/home/thubie/.config/sxhkd/sxhkdrc";
+		sxhkd.configFile= "/home/thubie/.config/sxhkd/sxhkdrc";
       };
+      */
     };
   };
 

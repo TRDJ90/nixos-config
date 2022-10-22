@@ -73,7 +73,7 @@ vim.api.nvim_set_hl(0, "NavicSeparator",          {default = true, bg = "#000000
 lualine.setup {
     options = {
         icons_enabled = true,
-        theme = "everforest",
+        theme = "nordfox",
         component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
         disabled_filetypes = {},

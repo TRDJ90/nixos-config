@@ -7,11 +7,9 @@
     # copy home
     home.file."wallpapers".source = ./wallpapers;
     
-
     xdg.enable = true;
 
     # copy config dotfiles
-    xdg.configFile."i3/config".text = builtins.readFile ./i3;
     xdg.configFile."picom/picom.conf".source = ./picom/picom.conf;
     xdg.configFile."awesome".source = ./awesome;
     xdg.configFile."bspwm".source = ./bspwm;
@@ -19,9 +17,8 @@
     xdg.configFile."rofi".source = ./rofi;
     xdg.configFile."polybar".source = ./polybar;
     xdg.configFile."nvim".source = ./nvim;
-    xdg.configFile."leftwm".source = ./leftwm;
-    #xdg.configFile."leftwm/themes/current".source = config.lib.file.mkOutOfStoreSymlink ./leftwm/themes/orange-forest;
-                 
+    xdg.configFile."qtile".source = ./qtile;
+
     home.packages = with pkgs; [
         bat
         firefox
@@ -46,7 +43,10 @@
         # language servers        
         rnix-lsp
         rust-analyzer
-        sumneko-lua-language-server        
+        sumneko-lua-language-server
+        
+        # node installed language servers
+        nodePackages.pyright
     ];
 
     home.sessionVariables = {
@@ -58,9 +58,9 @@
         MANPAGER = "sh -c 'col -bx | ${pkgs.bat}/bin/bat -l man -p'";
     };
 
-    services.picom = {
-        enable = true;   
-    };
+    #services.picom = {
+    #    enable = true;   
+    #};
         
     programs.alacritty = {
         enable = true;
@@ -125,27 +125,5 @@
 
     programs.helix = {
         enable = true;
-        settings = {
-            theme = "gruvbox";
-            
-            editor = {
-                line-number = "relative";
-                mouse = true;
-                gutters = ["diagnostics" "line-numbers"];
-                true-color = true;
-                auto-completion = true;
-                rulers = [80 115];
-            };
-               
-            editor.cursor-shape = {
-                insert = "bar";
-                normal = "block";
-                select = "block";
-            };
-            
-            editor.lsp = {
-                display-messages = true;
-            };
-        };
     };
 }

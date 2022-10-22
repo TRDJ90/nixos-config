@@ -10,6 +10,4 @@ nightfox.setup({
     }
 })
 
-nightfox.load('nordfox')
-
-vim.cmd("colorscheme nightfox")
+vim.cmd("colorscheme nordfox")
