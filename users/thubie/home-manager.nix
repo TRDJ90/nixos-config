@@ -18,19 +18,18 @@
     xdg.configFile."polybar".source = ./polybar;
     xdg.configFile."nvim".source = ./nvim;
     xdg.configFile."qtile".source = ./qtile;
+    xdg.configFile."nushell".source = ./nushell;
 
     home.packages = with pkgs; [
         bat
         firefox
         alacritty
-        neovim
-        feh            
+        neovim   
         ripgrep
+        fd
         tree
         rofi
-        bspwm
-        sxhkd
-        polybar
+        font-awesome
         vscode
         
         glxinfo
@@ -40,14 +39,19 @@
         rustc
         cargo
         protobuf
+        dotnet-sdk
+        nodejs
             
         # language servers        
         rnix-lsp
         rust-analyzer
         sumneko-lua-language-server
+        omnisharp-roslyn
         
         # node installed language servers
         nodePackages.pyright
+        nodePackages.typescript-language-server
+        nodePackages.vscode-langservers-extracted
     ];
 
     home.sessionVariables = {
@@ -60,7 +64,7 @@
     };
 
     services.picom = {
-        enable = true;   
+        enable = false;   
     };
         
     programs.alacritty = {
@@ -70,9 +74,13 @@
         opacity = 0.80;
         padding = {
             x = 0;
-            y = 6;
+            y = 0;
         };
         };
+    };
+
+    programs.tmux = {
+        enable = true;
     };
   
     programs.bash = {
@@ -94,6 +102,12 @@
         };
     };
     
+    programs.nushell = {
+        enable = true;
+        #configFile = builtins.readFile ./nushell/config.nu;
+        #envFile = builtins.readFile ./nushell/env.nu;
+    };
+
     programs.fish.enable = true;
     programs.fish.interactiveShellInit = ''
     	starship init fish | source

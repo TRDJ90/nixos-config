@@ -1,3 +1,4 @@
+local vim = vim
 local fn = vim.fn
 
 -- Automatically install packer
@@ -35,13 +36,13 @@ return require('packer').startup(function(use)
 
 	use { "neovim/nvim-lspconfig" }
 	use { "simrat39/rust-tools.nvim" }
-	
+
     use { 'kyazdani42/nvim-web-devicons' }
 
     use { "nvim-lualine/lualine.nvim"}
     use { "SmiteshP/nvim-navic" }
     use { "akinsho/bufferline.nvim", tag = "v2.*"}
-    
+
 	use { "kyazdani42/nvim-tree.lua"}
 	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
@@ -52,8 +53,10 @@ return require('packer').startup(function(use)
     use { 'hrsh7th/cmp-path' }
     use { 'hrsh7th/cmp-buffer' }
     use { 'saadparwaiz1/cmp_luasnip' }
-
     use { 'L3MON4D3/LuaSnip' }
+
+    use { 'nvim-telescope/telescope.nvim', tag = '0.1.0' }
+    use { 'nvim-lua/plenary.nvim' }
 
     use { 'tanvirtin/monokai.nvim' }
 	use { 'sainnhe/everforest' }

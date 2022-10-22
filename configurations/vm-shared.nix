@@ -113,11 +113,9 @@
     vim
     git
     wget
-    font-awesome
     gnumake
     killall
     pciutils
-    rxvt-unicode-unwrapped
     libGL
     libGLU
     # For hypervisors that support auto-resizing, this script forces it.
