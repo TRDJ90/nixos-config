@@ -1,4 +1,6 @@
-require('nightfox').setup({
+local nightfox = require('nightfox')
+
+nightfox.setup({
     options = {
         styles = {
             comments = "italic",
@@ -7,5 +9,7 @@ require('nightfox').setup({
         }
     }
 })
+
+nightfox.load('nordfox')
 
 vim.cmd("colorscheme nightfox")

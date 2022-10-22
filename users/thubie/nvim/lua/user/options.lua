@@ -9,7 +9,6 @@ opt.background = "dark"
 -- everforest 
 vim.g.everforest_background = "soft"
 --vim.api.nvim_set_option('colorscheme', 'everforest')
-vim.cmd [[colorscheme everforest]]
 
 -- UI settings
 wo.cursorline = true
@@ -28,3 +27,5 @@ vim.api.nvim_set_option('updatetime', 300)
 opt.tabstop = 4
 opt.shiftwidth = 4
 opt.expandtab = true
+
+opt.fillchars = 'eob: '
