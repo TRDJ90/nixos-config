@@ -19,7 +19,7 @@ wo.relativenumber = true
 opt.numberwidth = 6
 
 -- completion
-opt.completeopt = { "menuone", "noselect", "noinsert" }
+opt.completeopt = { "menuone", "noselect", "menu" }
 opt.shortmess = vim.opt.shortmess + { c = true }
 vim.api.nvim_set_option('updatetime', 300)
 

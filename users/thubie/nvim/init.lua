@@ -9,3 +9,4 @@ require("user.bufferline")
 require("user.statusline")
 
 require("user.lsp.lsp-config")
+require("user.lsp.lsp-completion")
