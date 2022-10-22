@@ -38,7 +38,8 @@
         # programming languages
         clang
         rustc
-        cargo    
+        cargo
+        protobuf
             
         # language servers        
         rnix-lsp
