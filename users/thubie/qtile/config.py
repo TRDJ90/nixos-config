@@ -103,14 +103,8 @@ screens = [
                 widget.Sep(padding=3, linewidth=2),
                 widget.CurrentLayoutIcon(scale = 0.4, **widget_defaults),
                 widget.GroupBox(**widget_defaults),
-                widget.Prompt(**widget_defaults),
-                widget.WindowName(**widget_defaults),
-                widget.Chord(
-                    chords_colors={
-                        "launch": ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
-                ),
+                widget.Sep(padding=3, linewidth=2),
+                widget.Spacer(),
                 widget.Systray(),
                 widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
                 widget.Sep(padding=3, linewidth=2),
