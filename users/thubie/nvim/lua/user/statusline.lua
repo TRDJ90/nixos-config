@@ -76,7 +76,10 @@ lualine.setup {
         theme = "nordfox",
         component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
-        disabled_filetypes = {},
+        disabled_filetypes = {
+            statusline = {},
+            winbar = {"NvimTree"}
+        },
         always_divide_middle = true,
     },
     sections = {
@@ -84,11 +87,6 @@ lualine.setup {
       lualine_b = { "branch", "diff", "diagnostics" },
       lualine_c = {
         { "filename" },
-        {
-          navic.get_location,
-          cond = navic.is_available,
-          color = { fg = "#f3ca28" },
-        },
       },
       lualine_x = { "encoding", "fileformat", "filetype" },
       lualine_y = { "progress" },
@@ -103,5 +101,19 @@ lualine.setup {
       lualine_z = {},
     },
     tabline = {},
+    winbar = {
+        lualine_a = {
+            { "filename" },
+            {
+                navic.get_location,
+                cond = navic.is_available
+            }
+        }
+    },
+    inactive_winbar = {
+        lualine_a = {
+            { "filename" }
+        }
+    },
     extensions = {},
 }

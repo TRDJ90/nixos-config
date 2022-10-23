@@ -6,17 +6,16 @@ local wo = vim.wo
 opt.termguicolors = true
 opt.background = "dark"
 
--- everforest 
-vim.g.everforest_background = "soft"
---vim.api.nvim_set_option('colorscheme', 'everforest')
-
 -- UI settings
 wo.cursorline = true
 vim.api.nvim_set_option('cmdheight', 2)
+opt.laststatus = 3
+-- opt.winbar = "%=%m %f"
 
 wo.number = true
 wo.relativenumber = true
-opt.numberwidth = 6
+opt.numberwidth = 4
+opt.wrap = false
 
 -- completion
 opt.completeopt = { "menuone", "noselect", "menu" }
