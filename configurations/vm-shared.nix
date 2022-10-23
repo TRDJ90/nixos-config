@@ -25,7 +25,7 @@
   };
 
   system.autoUpgrade = {
-	  enable = true;
+	  enable = false;
 	  channel = "https://nixos.org/channels/nixos-unstable";
   };
 
@@ -40,8 +40,6 @@
 	  };
     extraOptions = ''
       experimental-features = nix-command flakes
-      keep-outputs = true
-      keep-derivations = true
     '';
   };
 
