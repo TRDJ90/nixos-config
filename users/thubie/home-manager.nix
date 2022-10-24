@@ -44,6 +44,8 @@
         protobuf
         dotnet-sdk
         nodejs
+        python39
+        python39Packages.psutil
             
         # language servers        
         rnix-lsp

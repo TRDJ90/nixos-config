@@ -105,6 +105,16 @@ screens = [
                 widget.GroupBox(**widget_defaults),
                 widget.Sep(padding=3, linewidth=2),
                 widget.Spacer(),
+                
+                widget.Image(filename = "~/icons/hardware/cpu-icon.png", **widget_defaults),
+                widget.CPUGraph(),
+                
+                widget.Image(filename = "~/icons/hardware/memory-icon.png", **widget_defaults),
+                widget.MemoryGraph(),
+                
+                widget.Image(filename = "~/icons/hardware/m2-storage-icon.png", **widget_defaults),
+                widget.HDDGraph(),
+                
                 widget.Systray(),
                 widget.Clock(format="%Y-%m-%d %a %I:%M %p", **widget_defaults),
                 widget.Sep(padding=3, linewidth=2),
