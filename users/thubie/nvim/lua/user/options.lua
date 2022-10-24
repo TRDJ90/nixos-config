@@ -8,9 +8,8 @@ opt.background = "dark"
 
 -- UI settings
 wo.cursorline = true
-vim.api.nvim_set_option('cmdheight', 2)
 opt.laststatus = 3
--- opt.winbar = "%=%m %f"
+opt.cmdheight = 0
 
 wo.number = true
 wo.relativenumber = true

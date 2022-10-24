@@ -82,12 +82,12 @@
     xserver = {
       enable = true;
       layout = "us";
-      dpi = 144;
+      dpi = 221;
 
       displayManager = {
         #defaultSession = "none+bspwm";
         defaultSession = "none+qtile";
-        lightdm.enable = true;
+        gdm.enable = true;
 
         sessionCommands = ''
           ${pkgs.xorg.xset}/bin/xset r rate 500 40
