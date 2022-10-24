@@ -6,11 +6,12 @@
     
     # copy home
     home.file."wallpapers".source = ./wallpapers;
-    
+
     xdg.enable = true;
 
     # copy config dotfiles
     xdg.configFile."picom/picom.conf".source = ./picom/picom.conf;
+    xdg.configFile."alacritty".source = ./alacritty;
     xdg.configFile."awesome".source = ./awesome;
     xdg.configFile."bspwm".source = ./bspwm;
     xdg.configFile."sxhkd".source = ./sxhkd;
@@ -19,6 +20,7 @@
     xdg.configFile."nvim".source = ./nvim;
     xdg.configFile."qtile".source = ./qtile;
     xdg.configFile."nushell".source = ./nushell;
+    xdg.configFile."zellij".source = ./zellij;
 
     home.packages = with pkgs; [
         bat
@@ -69,20 +71,13 @@
         
     programs.alacritty = {
         enable = true;
-        settings.window = {
-        decorations = "full";
-        opacity = 0.80;
-        padding = {
-            x = 0;
-            y = 0;
-        };
-        };
     };
 
-    programs.tmux = {
-        enable = true;
+        
+    programs.zellij = {
+        enable = true;  
     };
-  
+
     programs.bash = {
         enable = true;
         shellOptions = [];
@@ -104,8 +99,6 @@
     
     programs.nushell = {
         enable = true;
-        #configFile = builtins.readFile ./nushell/config.nu;
-        #envFile = builtins.readFile ./nushell/env.nu;
     };
 
     programs.fish.enable = true;
