@@ -6,6 +6,7 @@
     
     # copy home
     home.file."wallpapers".source = ./wallpapers;
+    home.file."icons".source = ./icons;
     
     xdg.enable = true;
 
