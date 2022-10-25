@@ -8,7 +8,6 @@
 	  opengl = {
 		  enable = true;
 		  driSupport = true;
-      extraPackages = [ pkgs.mesa.drivers ];
 	  };
     video.hidpi.enable = true;
   };
@@ -29,7 +28,7 @@
 	  channel = "https://nixos.org/channels/nixos-unstable";
   };
 
-  system.stateVersion = "22.11"; # Did you read the comment?
+  system.stateVersion = "22.11";
 
   nix = {
     settings.auto-optimise-store = true;
@@ -43,7 +42,8 @@
     '';
   };
 
-  nixpkgs.config.allowUnfree =true;
+  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnsupportedSystem = true;
 
   #Networking
   networking.useDHCP = false;
@@ -82,10 +82,9 @@
     xserver = {
       enable = true;
       layout = "us";
-      dpi = 221;
+      dpi = 220;
 
       displayManager = {
-        #defaultSession = "none+bspwm";
         defaultSession = "none+qtile";
         gdm.enable = true;
 
@@ -97,13 +96,6 @@
       windowManager.qtile = {
         enable = true;
       };  
-      /*  
-      windowManager.bspwm = {
-        enable = true;
-        configFile = "/home/thubie/.config/bspwm/bspwmrc";
-		sxhkd.configFile= "/home/thubie/.config/sxhkd/sxhkdrc";
-      };
-      */
     };
   };
 
@@ -113,9 +105,6 @@
     wget
     gnumake
     killall
-    pciutils
-    libGL
-    libGLU
     # For hypervisors that support auto-resizing, this script forces it.
     # I've noticed not everyone listens to the udev events so this is a hack.
     (writeShellScriptBin "xrandr-auto" ''
@@ -125,12 +114,6 @@
 
   # Don't require password for sudo
   security.sudo.wheelNeedsPassword = false;
-
-  #users.defaultUserShell = pkgs.fish;
-
-  #environment.shells = with pkgs; [fish];
-  environment.variables.EDITOR = "nvim";
-  environment.variables.TERMINAL = "alacritty";
 }
 
   

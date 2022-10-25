@@ -37,6 +37,7 @@
         nitrogen
         feh
         glxinfo
+        pciutils
 
         # programming languages
         clang
