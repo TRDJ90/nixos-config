@@ -6,6 +6,8 @@
     ../vm-shared.nix
   ];
 
+  networking.interfaces.enp0s5.useDHCP = true;
+
   hardware.parallels = {
     enable = true;
   };
