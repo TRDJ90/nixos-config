@@ -102,18 +102,16 @@ screens = [
 
                 widget.Sep(padding=3, linewidth=2),
                 widget.CurrentLayoutIcon(scale = 0.4, **widget_defaults),
+                widget.Wallpaper(directory = "~/wallpapers", random_selection = True, option = 'fill', **widget_defaults),
                 widget.GroupBox(**widget_defaults),
                 widget.Sep(padding=3, linewidth=2),
                 widget.Spacer(),
                 
                 widget.Image(filename = "~/icons/hardware/cpu-icon.png", **widget_defaults),
-                widget.CPUGraph(),
+                widget.CPUGraph(margin_x = 5, margin_y = 10),
                 
                 widget.Image(filename = "~/icons/hardware/memory-icon.png", **widget_defaults),
-                widget.MemoryGraph(),
-                
-                widget.Image(filename = "~/icons/hardware/m2-storage-icon.png", **widget_defaults),
-                widget.HDDGraph(),
+                widget.MemoryGraph(margin_x = 5, margin_y = 10),
                 
                 widget.Systray(),
                 widget.Clock(format="%Y-%m-%d %a %I:%M %p", **widget_defaults),
@@ -130,7 +128,7 @@ screens = [
         #left=bar.Gap(10),
         #bottom=bar.Gap(10),
 
-        wallpaper='~/wallpapers/green-misty-forest.jpeg',
+        wallpaper='~/wallpapers/churei-tower-mount-fuji.jpeg',
         wallpaper_mode='fill',
     ),
 ]

@@ -34,7 +34,8 @@
         rofi
         font-awesome
         vscode
-        
+        nitrogen
+        feh
         glxinfo
 
         # programming languages
