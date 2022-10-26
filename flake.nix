@@ -7,15 +7,20 @@
 		nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     
     home-manager = {
-			url = "github:nix-community/home-manager/release-22.05";
-			inputs.nixpkgs.follows = "nixpkgs";
-    };    
+		url = "github:nix-community/home-manager/release-22.05";
+		inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    rust-overlay = {
+        url = "github:oxalica/rust-overlay";
+    };
   };
   	
   outputs = { self, nixpkgs, home-manager, ... }@inputs : let
 		mkVM = import ./lib/mkvm.nix;
 
 		overlays = [
+           inputs.rust-overlay.overlays.default
         ];		
 	in {
     nixosConfigurations.parallels-aarch64 = mkVM "parallels-aarch64" {

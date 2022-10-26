@@ -102,7 +102,12 @@ screens = [
 
                 widget.Sep(padding=3, linewidth=2),
                 widget.CurrentLayoutIcon(scale = 0.4, **widget_defaults),
-                widget.Wallpaper(directory = "~/wallpapers", random_selection = True, option = 'fill', **widget_defaults),
+                widget.Wallpaper(
+                    directory = "~/wallpapers", 
+                    label = "wallpaper",
+                    wallpaper_command = ['nitrogen', '--set-scaled'],
+                    **widget_defaults
+                ),
                 widget.GroupBox(**widget_defaults),
                 widget.Sep(padding=3, linewidth=2),
                 widget.Spacer(),
@@ -112,9 +117,9 @@ screens = [
                 
                 widget.Image(filename = "~/icons/hardware/memory-icon.png", **widget_defaults),
                 widget.MemoryGraph(margin_x = 5, margin_y = 10),
-                
-                widget.Systray(),
+            
                 widget.Clock(format="%Y-%m-%d %a %I:%M %p", **widget_defaults),
+                widget.Systray(icon_size = 20, **widget_defaults),
                 widget.Sep(padding=3, linewidth=2),
             ],
             36,
@@ -127,9 +132,6 @@ screens = [
         #rigth=bar.Gap(10),
         #left=bar.Gap(10),
         #bottom=bar.Gap(10),
-
-        wallpaper='~/wallpapers/churei-tower-mount-fuji.jpeg',
-        wallpaper_mode='fill',
     ),
 ]
 

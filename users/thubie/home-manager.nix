@@ -25,6 +25,7 @@
 
     home.packages = with pkgs; [
         bat
+        chromium
         firefox
         alacritty
         neovim   
@@ -34,16 +35,23 @@
         rofi
         font-awesome
         vscode
+        
+        variety
         nitrogen
         feh
+        
         glxinfo
         pciutils
+        tdesktop
 
         # programming languages
         clang
-        rustc
-        cargo
+        rust-bin.stable.latest.default
+        #rustc
+        #cargo
+        trunk
         protobuf
+        protoc-gen-grpc-web
         dotnet-sdk
         nodejs
         python39
@@ -68,6 +76,14 @@
         EDITOR = "nvim";
         PAGER = "less -FirSwX";
         MANPAGER = "sh -c 'col -bx | ${pkgs.bat}/bin/bat -l man -p'";
+    };
+
+    programs.chromium = {
+        enable = true;
+        extensions = [
+            "nngceckbapebfimnlniiiahkandclblb"
+            "cjpalhdlnbpafiamejdnhcphjbkeiagm"
+        ];
     };
 
     services.picom = {
