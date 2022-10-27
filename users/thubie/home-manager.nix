@@ -46,10 +46,16 @@
 
         # programming languages
         clang
-        rust-bin.stable.latest.default
-        #rustc
-        #cargo
+
+        (rust-bin.fromRustupToolchainFile ./rust/rust-toolchain.toml)
+        #(rust-bin.stable.latest.default.override {
+        #    targets = [ "wasm32-unknown-unknown" ];
+        #})
+
+        wasm-pack
+        wasm-bindgen-cli
         trunk
+
         protobuf
         protoc-gen-grpc-web
         dotnet-sdk
